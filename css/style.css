@@ -4,12 +4,6 @@
 	box-sizing: border-box;
 }
 
-/* :root {
-	--main-bg-color: #1B1B1B;
-	--main-fg-color: #FFFFFF;
-	--seoond-fg-color: #a2a2a2;
-} */
-
 html,
 body {
 	height: 100%;
@@ -21,8 +15,6 @@ body {
 	font-weight: 400;
 	font-style: normal;
 
-	/* background: linear-gradient(45deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%); */
-	/* background: linear-gradient(45deg, #7b4397 0%, #dc2430 100%); */
 	background: linear-gradient(45deg, #000000 0%, #923CB5 100%);
 	color: #FFF;
 
@@ -75,4 +67,16 @@ main {
 	font-size: 4rem;
 	width: 78px;
 	text-align: center;
+}
+
+@media screen and (max-width: 608px) {
+	#timer {
+		flex-direction: column;
+	}
+
+
+	#timer .separator {
+		margin: 0.25em 0 0 0;
+	}
+
 }

@@ -10,19 +10,19 @@ const interval = setInterval(updateDate, 1000);
 function updateDate() {
 	const currentDate = moment();
 
-	let duration = moment.duration(firedDate.diff(currentDate));
+	const duration = moment.duration(firedDate.diff(currentDate));
 
 	const totalDays = Math.floor(duration.asDays());
 	const hours = duration.hours();
 	const minutes = duration.minutes();
 	const seconds = duration.seconds();
 
-	spanDays.textContent = addZero(totalDays);
-	spanHours.textContent = addZero(hours);
-	spanMinutes.textContent = addZero(minutes);
-	spanSeconds.textContent = addZero(seconds);
+	spanDays.textContent = padStartZero(totalDays);
+	spanHours.textContent = padStartZero(hours);
+	spanMinutes.textContent = padStartZero(minutes);
+	spanSeconds.textContent = padStartZero(seconds);
 }
 
-function addZero(number) {
+function padStartZero(number) {
 	return number.toString().padStart(2, "0");
 }
