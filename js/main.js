@@ -9,10 +9,14 @@ const paramsString = window.location.search;
 const searchParams = new URLSearchParams(paramsString);
 
 if (searchParams.has("date")) {
-	const queryDate = moment(searchParams.get("date"));
+	const queryDate = searchParams.get("date");
 
-	if (queryDate.isValid()) {
-		deadLineDate = queryDate;
+	for (const format in ["YYYY-MM-DD", "MM-DD-YYYY"]) {
+		const date = moment(queryDate, format);
+		if (date.isValid()) {
+			deadLineDate = date;
+			break;
+		}
 	}
 }
 
