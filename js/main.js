@@ -3,7 +3,18 @@ const spanHours = document.querySelector("#hours");
 const spanMinutes = document.querySelector("#minutes");
 const spanSeconds = document.querySelector("#seconds");
 
-const firedDate = moment("2024-08-30 12:00:00");
+let deadLineDate = moment();
+
+const paramsString = window.location.search;
+const searchParams = new URLSearchParams(paramsString);
+
+if (searchParams.has("date")) {
+	const queryDate = moment(searchParams.get("date"));
+
+	if (queryDate.isValid()) {
+		deadLineDate = queryDate;
+	}
+}
 
 const interval = setInterval(updateDate, 1000);
 
@@ -12,7 +23,7 @@ updateDate();
 function updateDate() {
 	const currentDate = moment();
 
-	const duration = moment.duration(firedDate.diff(currentDate));
+	const duration = moment.duration(deadLineDate.diff(currentDate));
 
 	const totalDays = Math.floor(duration.asDays());
 	const hours = duration.hours();
