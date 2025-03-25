@@ -11,8 +11,9 @@ const searchParams = new URLSearchParams(paramsString);
 if (searchParams.has("date")) {
 	const queryDate = searchParams.get("date");
 
-	for (const format in ["YYYY-MM-DD", "MM-DD-YYYY"]) {
-		const date = moment(queryDate, format);
+	for (const format of ["YYYY-MM-DD", "DD-MM-YYYY"]) {
+		const date = moment(queryDate, format, true);
+
 		if (date.isValid()) {
 			deadLineDate = date;
 			break;
